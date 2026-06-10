@@ -1,6 +1,6 @@
 
 ;; FUNCIÓN: registrar-cambio
-;; NATURALEZA: Impura (Produce efectos secundarios al imprimir en la terminal)
+;; NATURALEZA: Impura 
 ;; ESTRATEGIA: Directa / Ejecución Secuencial
 ;; IMPACTO: No destructiva
 ;; ========================================================================
