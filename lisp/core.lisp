@@ -56,3 +56,11 @@ REQUERIMIENTO 4a
 
 (defun duracion-ciclo (tiempos-fase)
   (reduce #'+ tiempos-fase))
+
+REQUERIMIENTO 4b
+;; ========================================================================
+;; FUNCIÓN: recomendacion-ciclo
+;; NATURALEZA: Pura 
+;; ESTRATEGIA: Función Predicado / Condicional
+;; IMPACTO: No destructiva
+;; ========================================================================
