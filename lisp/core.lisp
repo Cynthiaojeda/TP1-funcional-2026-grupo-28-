@@ -2,7 +2,7 @@ codigo lisp REQUERIMIENTO 1
 ;;======================================
 ;; FUNCIÓN: Trancisicion 
 ;; NATURALEZA: pura 
-;; ESTRATEGIA:
+;; ESTRATEGIA: condicional
 ;; IMPACTO: no destructivo
 ;; =======================================
 (defun transicion (color-actual cambiar-a)
@@ -20,10 +20,15 @@ codigo lisp REQUERIMIENTO 1
      (list color-actual 'accion-por-defecto))))
 
 REQUERIMIENTO 2
-(defun timer (timestamp) " cambiar "
-
+;;===============================
+;;FUNCIÓN: timer
+;;NATURALEZA: pura 
+;;ESTRATEGIA: condicional
+;;IMPACTO; No destructivo
+;;===============================
+(defun timer (epoch)
   ; calcular en qué segundo del ciclo estoy
-  (let ((posicion (mod timestamp 216)))
+  (let ((posicion (mod epoch 216)))
 
     ; decidir el color según esa posición
     (cond
