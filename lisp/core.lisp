@@ -35,3 +35,10 @@ REQUERIMIENTO 2
       ((< posicion 90) 'rojo)
       ((< posicion 96) 'amarillo)
       (t 'verde))))
+
+REQUERIMIENTO 3
+;; ========================================================================
+;; FUNCIÓN: registrar-cambio
+;; NATURALEZA: Impura 
+;; ESTRATEGIA: Directa / Ejecución Secuencial
+;; IMPACTO: No destructiva
