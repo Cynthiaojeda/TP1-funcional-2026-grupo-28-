@@ -53,3 +53,6 @@ REQUERIMIENTO 4a
 ;; ESTRATEGIA: Orden Superior 
 ;; IMPACTO: No destructiva 
 ;; ========================================================================
+
+(defun duracion-ciclo (tiempos-fase)
+  (reduce #'+ tiempos-fase))
