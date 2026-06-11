@@ -73,3 +73,15 @@ REQUERIMIENTO 4b
      "No recomendado: El ciclo es demasiado largo (excede los 150s) y genera impaciencia.")
     (t 
      "Recomendado: La duración se encuentra en el rango óptimo (35-150 segundos).")))
+
+
+;; ========================================================
+;; FUNCIÓN: ciclos-por-tiempo
+;; NATURALEZA: Pura
+;; ESTRATEGIA: Cálculo Directo
+;; IMPACTO: No destructiva
+;; ========================================================
+(defun ciclos-por-tiempo (minutos rojo amarillo verde)
+  (let ((total (* 60 minutos))
+        (duracion (+ rojo amarillo verde)))
+    (truncate total duracion)))
