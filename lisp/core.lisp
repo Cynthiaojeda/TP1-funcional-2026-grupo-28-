@@ -45,3 +45,11 @@ REQUERIMIENTO 3
 
 (defun registrar-cambio (epoch color-actual cambiar-a)
   (format t "Tiempo ~A: la luz ha cambiado de ~A a ~A~%" epoch color-anterior color-nuevo))
+
+REQUERIMIENTO 4a
+;; ========================================================================
+;; FUNCIÓN: duracion-ciclo
+;; NATURALEZA: Pura
+;; ESTRATEGIA: Orden Superior 
+;; IMPACTO: No destructiva 
+;; ========================================================================
