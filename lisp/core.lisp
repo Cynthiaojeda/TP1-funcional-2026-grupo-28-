@@ -85,3 +85,11 @@ REQUERIMIENTO 4b
   (let ((total (* 60 minutos))
         (duracion (+ rojo amarillo verde)))
     (truncate total duracion)))
+
+
+;; ========================================================
+;; FUNCIÓN: informe-distribucion
+;; NATURALEZA: Pura
+;; ESTRATEGIA: Orden Superior
+;; IMPACTO: No destructiva
+;; ========================================================
