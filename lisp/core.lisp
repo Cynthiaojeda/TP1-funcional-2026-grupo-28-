@@ -33,6 +33,7 @@ REQUERIMIENTO 2
     (cond
       ((< posicion 90) 'rojo)
       ((< posicion 96) 'amarillo)
+<<<<<<< HEAD
       (t 'verde)
     )
   )
@@ -57,3 +58,69 @@ def transicion(colorActual: String, cambiarA: String): List[String] = {
     println(transicion("en-rojo", "amarillo"))
 
   }
+=======
+      (t 'verde))))
+
+REQUERIMIENTO 3
+;; ========================================================================
+;; FUNCIÓN: registrar-cambio 
+;; NATURALEZA: Impura 
+;; ESTRATEGIA: Directa / Ejecución Secuencial
+;; IMPACTO: No destructiva
+
+(defun registrar-cambio (epoch color-actual cambiar-a)
+  (format t "Tiempo ~A: la luz ha cambiado de ~A a ~A~%" epoch color-anterior color-nuevo))
+
+REQUERIMIENTO 4a
+;; ========================================================================
+;; FUNCIÓN: duracion-ciclo
+;; NATURALEZA: Pura
+;; ESTRATEGIA: Orden Superior 
+;; IMPACTO: No destructiva 
+;; ========================================================================
+
+(defun duracion-ciclo (tiempos-fase)
+  (reduce #'+ tiempos-fase))
+
+REQUERIMIENTO 4b
+;; ========================================================================
+;; FUNCIÓN: recomendacion-ciclo
+;; NATURALEZA: Pura 
+;; ESTRATEGIA: Función Predicado / Condicional
+;; IMPACTO: No destructiva
+;; ========================================================================
+(defun recomendacion-ciclo (duracion)
+  "Evalúa la duración de un ciclo bajo los estándares de la psicología del conductor (35s - 150s)."
+  (cond
+    ((< duracion 35) 
+     "No recomendado: El ciclo es demasiado corto para la psicología del conductor.")
+    ((> duracion 150) 
+     "No recomendado: El ciclo es demasiado largo (excede los 150s) y genera impaciencia.")
+    (t 
+     "Recomendado: La duración se encuentra en el rango óptimo (35-150 segundos).")))
+
+;; REQUERIMIENTO 5
+;; ========================================================
+;; FUNCIÓN: ciclos-por-tiempo
+;; NATURALEZA: Pura
+;; ESTRATEGIA: Cálculo Directo
+;; IMPACTO: No destructiva
+;; ========================================================
+(defun ciclos-por-tiempo (minutos rojo amarillo verde)
+  (let ((total (* 60 minutos))
+        (duracion (+ rojo amarillo verde)))
+    (truncate total duracion)))
+
+;;REQUERIMIENTO 6.
+;; ========================================================
+;; FUNCIÓN: informe-distribucion
+;; NATURALEZA: Pura
+;; ESTRATEGIA: Orden Superior
+;; IMPACTO: No destructiva
+;; ========================================================
+;; ========================================================
+(defun informe-distribucion (rojo amarillo verde)
+  (let ((ciclo-total (+ rojo amarillo verde)))
+    (mapcar '(lambda (tiempo) (* (/ tiempo ciclo-total) 100.0))
+            (list rojo amarillo verde))))
+>>>>>>> a8d4fb7d4323ee87cc569674399b2461e1754034
