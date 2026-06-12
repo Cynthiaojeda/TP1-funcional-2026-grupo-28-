@@ -93,3 +93,8 @@ REQUERIMIENTO 4b
 ;; ESTRATEGIA: Orden Superior
 ;; IMPACTO: No destructiva
 ;; ========================================================
+;; ========================================================
+(defun informe-distribucion (rojo amarillo verde)
+  (let ((ciclo-total (+ rojo amarillo verde)))
+    (mapcar '(lambda (tiempo) (* (/ tiempo ciclo-total) 100.0))
+            (list rojo amarillo verde))))
