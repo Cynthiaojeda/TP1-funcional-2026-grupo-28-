@@ -74,7 +74,7 @@ REQUERIMIENTO 4b
     (t 
      "Recomendado: La duración se encuentra en el rango óptimo (35-150 segundos).")))
 
-REQUERIMIENTO 5
+;; REQUERIMIENTO 5
 ;; ========================================================
 ;; FUNCIÓN: ciclos-por-tiempo
 ;; NATURALEZA: Pura
@@ -86,7 +86,7 @@ REQUERIMIENTO 5
         (duracion (+ rojo amarillo verde)))
     (truncate total duracion)))
 
-
+;;REQUERIMIENTO 6.
 ;; ========================================================
 ;; FUNCIÓN: informe-distribucion
 ;; NATURALEZA: Pura
