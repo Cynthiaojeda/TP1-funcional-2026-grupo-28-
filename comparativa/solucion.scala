@@ -1,5 +1,5 @@
 ;; REQUERIMIENTO 1
-;;scala Trancisicion
+;;scala Transicion
       ;; colorActual, cambiarA, list son los argumentos que se utliza con la forma del argumento
 def transicion(colorActual: String, cambiarA: String): List[String] = { 
         ;; ya que en scala no hay cond utilizamos if
@@ -18,3 +18,5 @@ def transicion(colorActual: String, cambiarA: String): List[String] = {
     println(transicion("en-rojo", "amarillo"))
 
   }
+;REQUEIMIENTO 2
+;Scala transición
