@@ -108,6 +108,8 @@ REQUERIMIENTO 4b
        (duracion-del-ciclo (+ rojo amarillo verde))
        (ciclos-completos (floor (/ tiempo-combinado duracion-del-ciclo)))
        (segundos-restantes (- tiempo-combinado (* ciclos-completos duracion-del-ciclo))))
+
+       (t-rojo (* ciclos-completos rojo)) (t-amarillo (* ciclos-completos amarillo)) (t-verde (* ciclos-completos verde)) 
   
   (let ((ciclo-total (+ rojo amarillo verde)))
     (mapcar '(lambda (tiempo) (* (/ tiempo ciclo-total) 100.0))
