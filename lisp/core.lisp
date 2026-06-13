@@ -169,7 +169,42 @@
     (otherwise 'en-rojo)))
 
 
-   ;; ========================================================================
+  ;; ========================================================================
+;; FUNCIÓN: timer
+;; NATURALEZA: Pura
+;; ESTRATEGIA: Acumulación secuencial / División modular
+;; IMPACTO: No destructiva
+;; ========================================================================
+
+(defun timer (tiempo-unix)
+  "Calcula color según tiempo Unix (con intermitencia de 3 segundos).
+   Entrada: tiempo-unix (entero)
+   Salida: símbolo del color actual"
+  (let* ((dur-rojo (duracion-color 'en-rojo))
+         (dur-inter1 (duracion-color 'amarillo-intermitente))
+         (dur-verde (duracion-color 'en-verde))
+         (dur-inter2 (duracion-color 'amarillo-intermitente))
+         (dur-amarillo (duracion-color 'en-amarillo))
+         (dur-inter3 (duracion-color 'amarillo-intermitente))
+         (ciclo-total (+ dur-rojo dur-inter1 dur-verde dur-inter2 
+                         dur-amarillo dur-inter3))
+         (tiempo-local (mod tiempo-unix ciclo-total))
+         (limite1 dur-rojo)
+         (limite2 (+ limite1 dur-inter1))
+         (limite3 (+ limite2 dur-verde))
+         (limite4 (+ limite3 dur-inter2))
+         (limite5 (+ limite4 dur-amarillo)))
+    (cond
+      ((< tiempo-local limite1) 'en-rojo)
+      ((< tiempo-local limite2) 'amarillo-intermitente)
+      ((< tiempo-local limite3) 'en-verde)
+      ((< tiempo-local limite4) 'amarillo-intermitente)
+      ((< tiempo-local limite5) 'en-amarillo)
+      (t 'amarillo-intermitente))))
+
+
+
+;; ========================================================================
 ;; FUNCIÓN: duracion-ciclo
 ;; NATURALEZA: Pura
 ;; ESTRATEGIA: Suma directa de duraciones
@@ -186,4 +221,5 @@
      (duracion-color 'amarillo-intermitente)
      (duracion-color 'en-amarillo)
      (duracion-color 'amarillo-intermitente)))
+ 
  
