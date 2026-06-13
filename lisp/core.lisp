@@ -122,9 +122,9 @@
        (total-rojo (+ t-rojo restos-color-rojo))
        (total-amarillo (+ t-amarillo restos-color-amarillo))
        (total-verde (+ t-verde restos-color-verde))
-
-
        
-  (let ((ciclo-total (+ rojo amarillo verde)))
-    (mapcar '(lambda (tiempo) (* (/ tiempo ciclo-total) 100.0))
-            (list rojo amarillo verde))))
+    (mapcar #'(lambda (color tiempo-final) 
+                (list color (* (/ tiempo-final tiempo-combinado) 100.0) '%))
+               '(rojo amarillo verde)
+                (list total-rojo total-amarillo total-verde))))
+
