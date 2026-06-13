@@ -149,20 +149,3 @@
     (amarillo-intermitente 3)
     (otherwise 0)))
 
-;; ========================================================================
-;; FUNCIÓN: siguiente-estado
-;; NATURALEZA: Pura
-;; ESTRATEGIA: Conditional / Case statement
-;; IMPACTO: No destructiva
-;; ========================================================================
-
-(defun siguiente-estado (estado-actual)
-  "Calcula el siguiente estado en la secuencia con intermitencia.
-   Entrada: estado-actual (símbolo)
-   Salida: símbolo del siguiente estado"
-  (case estado-actual
-    (en-rojo 'amarillo-intermitente)
-    (amarillo-intermitente 'en-verde)
-    (en-verde 'amarillo-intermitente)
-    (en-amarillo 'amarillo-intermitente)
-    (otherwise 'en-rojo)))
