@@ -50,10 +50,10 @@ REQUERIMIENTO 3
 
 REQUERIMIENTO 4a
 ;; ========================================================================
-;; FUNCIÓN: duracion-ciclo
-;; NATURALEZA: Pura
-;; ESTRATEGIA: Orden Superior 
-;; IMPACTO: No destructiva 
+;; FUNCIÓN: Duración-ciclo
+;; NATURALEZA: Recursiva 
+;; ESTRATEGIA: Recorrido recursivo a través de la lista
+;; IMPACTO: No destructiva
 ;; ========================================================================
 
 (defun duracion-ciclo (tiempos-fase)
