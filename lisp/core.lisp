@@ -60,9 +60,9 @@
 
 (defun duracion-ciclo (tiempos-fase)
     (cond
-      ((endp tiempos-fase) 0)
-      ((numberp (first tiempos-fase)) 
-        (+ (first tiempos-fase) (duracion-ciclo (cdr tiempos-fase))))
+      ((endp tiempos-fase) 0) ;Caso base
+      ((numberp (first tiempos-fase)) ;Verifica si es un numero
+        (+ (first tiempos-fase) (duracion-ciclo (cdr tiempos-fase)))) ;Suma el primero de la lista con el resto de la lista
       (t (duracion-ciclo (cdr tiempos-fase)))
     )
   )
@@ -91,6 +91,7 @@
 ;; ESTRATEGIA: Cálculo Directo
 ;; IMPACTO: No destructiva
 ;; ========================================================
+
 (defun ciclos-por-tiempo (minutos rojo amarillo verde)
   (let ((total (* 60 minutos))
         (duracion (+ rojo amarillo verde)))
