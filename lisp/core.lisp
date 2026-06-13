@@ -56,8 +56,15 @@ REQUERIMIENTO 4a
 ;; IMPACTO: No destructiva
 ;; ========================================================================
 
+
 (defun duracion-ciclo (tiempos-fase)
-  (reduce #'+ tiempos-fase))
+    (cond
+      ((endp tiempos-fase) 0)
+      ((numberp (first tiempos-fase)) 
+        (+ (first tiempos-fase) (duracion-ciclo (cdr tiempos-fase))))
+      (t (duracion-ciclo (cdr tiempos-fase)))
+    )
+  )
 
 REQUERIMIENTO 4b
 ;; ========================================================================
