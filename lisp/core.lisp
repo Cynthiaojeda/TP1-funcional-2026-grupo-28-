@@ -118,7 +118,13 @@
        (restos-color-amarillo (min resto1 amarillo))
        (resto2 (- resto1 restos-color-amarillo))
        (restos-color-verde (min resto2 verde))
+ 
+       (total-rojo (+ t-rojo restos-color-rojo))
+       (total-amarillo (+ t-amarillo restos-color-amarillo))
+       (total-verde (+ t-verde restos-color-verde))
 
+
+       
   (let ((ciclo-total (+ rojo amarillo verde)))
     (mapcar '(lambda (tiempo) (* (/ tiempo ciclo-total) 100.0))
             (list rojo amarillo verde))))
