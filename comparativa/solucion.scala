@@ -20,3 +20,10 @@ def transicion(colorActual: String, cambiarA: String): List[String] = {
   }
 ;REQUEIMIENTO 2
 ;Scala transición
+def timer(epoch: Int): String = {
+  val posicion = epoch % 216 
+  
+  if (posicion < 90) "rojo"
+  else if (posicion < 96) "amarillo"
+  else "verde"
+}
