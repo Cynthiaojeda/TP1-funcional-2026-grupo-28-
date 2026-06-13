@@ -131,4 +131,23 @@
                 (list total-rojo total-amarillo total-verde))))
 
 
+         ;REQUERIMIENTO 7.
+      ;; ========================================================================
+      ;; FUNCIÓN: duracion-color
+      ;; NATURALEZA: Pura
+      ;; ESTRATEGIA: Conditional / Case statement
+      ;; IMPACTO: No destructiva
+      ;; ========================================================================
+
+  (defun duracion-color (estado)
+    "Duración en segundos de cada estado del semáforo.
+    Entrada: estado (símbolo)
+     Salida: entero (segundos)"
+     (case estado
+      (en-rojo 90)
+       (en-verde 120)
+        (en-amarillo 6)
+         (amarillo-intermitente 3)
+          (otherwise 0)))
+ 
 
