@@ -92,9 +92,9 @@
 ;; IMPACTO: No destructiva
 ;; ========================================================
 
-(defun ciclos-por-tiempo (minutos rojo amarillo verde)
+(defun ciclos-por-tiempo (minutos)
   (let ((total (* 60 minutos))
-        (duracion (+ rojo amarillo verde)))
+        (duracion (+ 90 6 120)))
     (truncate total duracion)))
 
 ;;REQUERIMIENTO 6.
@@ -104,14 +104,16 @@
 ;; ESTRATEGIA: Orden Superior
 ;; IMPACTO: No destructiva
 ;; ========================================================
-;; ========================================================
+
 (defun informe-distribucion (rojo amarillo verde)
  (let* ((tiempo-combinado 3600)
        (duracion-del-ciclo (+ rojo amarillo verde))
        (ciclos-completos (floor (/ tiempo-combinado duracion-del-ciclo)))
-       (segundos-restantes (- tiempo-combinado (* ciclos-completos duracion-del-ciclo))))
+       (resto-segundos (- tiempo-combinado (* ciclos-completos duracion-del-ciclo))))
 
-       (t-rojo (* ciclos-completos rojo)) (t-amarillo (* ciclos-completos amarillo)) (t-verde (* ciclos-completos verde)) 
+       (t-rojo (* ciclos-completos rojo))
+       (t-amarillo (* ciclos-completos amarillo))
+       (t-verde (* ciclos-completos verde)) 
        
        (restos-color-rojo (min resto-segundos rojo))
        (resto1 (- resto-segundos restos-color-rojo))
