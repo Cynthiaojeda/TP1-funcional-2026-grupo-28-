@@ -97,6 +97,11 @@ REQUERIMIENTO 4b
 ;; ========================================================
 ;; ========================================================
 (defun informe-distribucion (rojo amarillo verde)
+ (let* ((tiempo-combinado 3600)
+       (duracion-del-ciclo (+ rojo amarillo verde))
+       (ciclos-completos (floor (/ tiempo-combinado duracion-del-ciclo)))
+       (segundos-restantes (- tiempo-combinado (* ciclos-completos duracion-del-ciclo))))
+  
   (let ((ciclo-total (+ rojo amarillo verde)))
     (mapcar '(lambda (tiempo) (* (/ tiempo ciclo-total) 100.0))
             (list rojo amarillo verde))))
