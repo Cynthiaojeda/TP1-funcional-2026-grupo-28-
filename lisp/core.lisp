@@ -168,3 +168,22 @@
     (en-amarillo 'amarillo-intermitente)
     (otherwise 'en-rojo)))
 
+
+   ;; ========================================================================
+;; FUNCIÓN: duracion-ciclo
+;; NATURALEZA: Pura
+;; ESTRATEGIA: Suma directa de duraciones
+;; IMPACTO: No destructiva
+;; ========================================================================
+
+(defun duracion-ciclo ()
+  "Duración total del ciclo completo con intermitencia.
+   Entrada: ninguna
+   Salida: entero (segundos totales del ciclo)"
+  (+ (duracion-color 'en-rojo)
+     (duracion-color 'amarillo-intermitente)
+     (duracion-color 'en-verde)
+     (duracion-color 'amarillo-intermitente)
+     (duracion-color 'en-amarillo)
+     (duracion-color 'amarillo-intermitente)))
+ 
