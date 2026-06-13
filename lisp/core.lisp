@@ -112,7 +112,13 @@
        (segundos-restantes (- tiempo-combinado (* ciclos-completos duracion-del-ciclo))))
 
        (t-rojo (* ciclos-completos rojo)) (t-amarillo (* ciclos-completos amarillo)) (t-verde (* ciclos-completos verde)) 
-  
+       
+       (restos-color-rojo (min resto-segundos rojo))
+       (resto1 (- resto-segundos restos-color-rojo))
+       (restos-color-amarillo (min resto1 amarillo))
+       (resto2 (- resto1 restos-color-amarillo))
+       (restos-color-verde (min resto2 verde))
+
   (let ((ciclo-total (+ rojo amarillo verde)))
     (mapcar '(lambda (tiempo) (* (/ tiempo ciclo-total) 100.0))
             (list rojo amarillo verde))))
