@@ -1,4 +1,5 @@
-codigo lisp REQUERIMIENTO 1
+;codigo lisp 
+;REQUERIMIENTO 1
 ;;======================================
 ;; FUNCIÓN: Trancisicion 
 ;; NATURALEZA: pura 
@@ -19,7 +20,7 @@ codigo lisp REQUERIMIENTO 1
     (t
      (list color-actual 'accion-por-defecto))))
 
-REQUERIMIENTO 2
+;REQUERIMIENTO 2
 ;;===============================
 ;;FUNCIÓN: timer
 ;;NATURALEZA: pura 
@@ -38,7 +39,7 @@ REQUERIMIENTO 2
   )
 )
 
-REQUERIMIENTO 3
+;REQUERIMIENTO 3
 ;; ========================================================================
 ;; FUNCIÓN: registrar-cambio 
 ;; NATURALEZA: Impura 
@@ -48,7 +49,7 @@ REQUERIMIENTO 3
 (defun registrar-cambio (epoch color-actual cambiar-a)
   (format t "Tiempo ~A: la luz ha cambiado de ~A a ~A~%" epoch color-anterior color-nuevo))
 
-REQUERIMIENTO 4a
+;REQUERIMIENTO 4a
 ;; ========================================================================
 ;; FUNCIÓN: Duración-ciclo
 ;; NATURALEZA: Recursiva 
@@ -66,7 +67,7 @@ REQUERIMIENTO 4a
     )
   )
 
-REQUERIMIENTO 4b
+;REQUERIMIENTO 4b
 ;; ========================================================================
 ;; FUNCIÓN: recomendacion-ciclo
 ;; NATURALEZA: Pura 
