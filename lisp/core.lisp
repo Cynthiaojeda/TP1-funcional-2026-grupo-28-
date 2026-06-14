@@ -279,4 +279,24 @@
   ;; Retornar indicador de éxito
   'informe-generado)
  
- 
+
+;; ========================================================================
+;; FUNCIÓN: simular-cambios
+;; NATURALEZA: Pura (excepto por timer que es pura)
+;; ESTRATEGIA: Iteración temporal con acumulación
+;; IMPACTO: No destructiva
+;; ========================================================================
+
+(defun simular-cambios (tiempo-inicial segundos-totales)
+  "Simula todos los cambios de estado en un período dado.
+   Entrada: tiempo-inicial (entero), segundos-totales (entero)
+   Salida: lista de eventos (epoch anterior nuevo)"
+  (let ((eventos nil)
+        (estado-actual (timer tiempo-inicial))
+        (tiempo-actual tiempo-inicial))
+    (dotimes (i segundos-totales)
+      (let ((nuevo-estado (timer (+ tiempo-inicial i))))
+        (unless (eq nuevo-estado estado-actual)
+          (push (list (+ tiempo-inicial i) estado-actual nuevo-estado) eventos)
+          (setf estado-actual nuevo-estado))))
+    (reverse eventos)))
