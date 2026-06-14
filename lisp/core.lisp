@@ -244,5 +244,39 @@
                           :if-does-not-exist :create)
     (format stream "Tiempo ~A: la luz ha cambiado de ~A a ~A~%" 
             epoch color-anterior color-nuevo)))
+
+
+;; ========================================================================
+;; FUNCIÓN: informe
+;; NATURALEZA: Impura
+;; ESTRATEGIA: Iteración sobre lista de datos / Escritura secuencial
+;; IMPACTO: No destructiva, crea/sobrescribe archivo de texto
+;; ========================================================================
+
+(defun informe (datos)
+  "Genera informe completo de auditoría en archivo de texto.
+   Entrada: datos (lista de listas (epoch anterior nuevo))
+   Salida: 'informe-generado (símbolo indicador de éxito)"
+  ;; Sobrescribir o crear archivo con encabezado
+  (with-open-file (stream "informe-ejecucion-semaforo.txt"
+                          :direction :output
+                          :if-exists :supersede
+                          :if-does-not-exist :create)
+    (format stream "Informe de Ejecución del Sistema Semafórico~%")
+    (format stream "=========================================~%"))
+  
+  ;; Registrar cada evento
+  (dolist (evento datos)
+    (destructuring-bind (epoch anterior nuevo) evento
+      (registrar-cambio epoch anterior nuevo)))
+  
+  ;; Agregar pie de página
+  (with-open-file (stream "informe-ejecucion-semaforo.txt"
+                          :direction :output
+                          :if-exists :append)
+    (format stream "~%--- Fin del Informe ---"))
+  
+  ;; Retornar indicador de éxito
+  'informe-generado)
  
  
