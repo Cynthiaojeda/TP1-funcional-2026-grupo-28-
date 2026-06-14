@@ -221,5 +221,28 @@
      (duracion-color 'amarillo-intermitente)
      (duracion-color 'en-amarillo)
      (duracion-color 'amarillo-intermitente)))
+
+
+   ;; ========================================================================
+;; FUNCIÓN: registrar-cambio
+;; NATURALEZA: Impura
+;; ESTRATEGIA: Directa / Ejecución Secuencial
+;; IMPACTO: No destructiva, efectos de lado (pantalla + archivo)
+;; ========================================================================
+
+(defun registrar-cambio (epoch color-anterior color-nuevo)
+  "Registra cambio de estado en terminal y archivo de texto.
+   Entrada: epoch (entero), color-anterior (símbolo), color-nuevo (símbolo)
+   Salida: nil (efecto de lado)"
+  ;; Mostrar en pantalla
+  (format t "Tiempo ~A: la luz ha cambiado de ~A a ~A~%" 
+          epoch color-anterior color-nuevo)
+  ;; Guardar en archivo
+  (with-open-file (stream "informe-ejecucion-semaforo.txt"
+                          :direction :output
+                          :if-exists :append
+                          :if-does-not-exist :create)
+    (format stream "Tiempo ~A: la luz ha cambiado de ~A a ~A~%" 
+            epoch color-anterior color-nuevo)))
  
  
