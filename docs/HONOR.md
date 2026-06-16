@@ -46,7 +46,7 @@ Declaración Jurada: Al subir este archivo al repositorio, declaro bajo compromi
 
 
 
-Integrante 3: [Rivero Alessandro] - Usuario GitHub: [Alessandro-Srivero]
+#declaración de honor Integrante 3: [Rivero Alessandro] - Usuario GitHub: [Alessandro-Srivero]
 
 1. Código en Common Lisp (Requerimiento 5 y 6) 
 [ ] Desarrollo 100% Humano: El código fue diseñado, escrito y depurado puramente por mí/el grupo sin intervención de IA.
