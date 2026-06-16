@@ -18,7 +18,7 @@ def transicion(colorActual: String, cambiarA: String): List[String] = {
     println(transicion("en-rojo", "amarillo"))
 
   }
-;REQUEIMIENTO 2
+;REQUERIMIENTO 2
 ;Scala transición
 def timer(epoch: Int): String = { ; Define la funcion 
   val posicion = epoch % 216 ; Crea la varariable "posicion" que contiene el valo de epoch dividido 216
