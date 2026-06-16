@@ -249,7 +249,7 @@
 ;; ========================================================================
 ;; FUNCIÓN: informe
 ;; NATURALEZA: Impura
-;; ESTRATEGIA: Iteración sobre lista de datos / Escritura secuencial
+;; ESTRATEGIA:  Recurción sobre lista de datos / Escritura secuencial
 ;; IMPACTO: No destructiva, crea/sobrescribe archivo de texto
 ;; ========================================================================
 
@@ -283,7 +283,7 @@
 ;; ========================================================================
 ;; FUNCIÓN: simular-cambios
 ;; NATURALEZA: Pura (excepto por timer que es pura)
-;; ESTRATEGIA: Iteración temporal con acumulación
+;; ESTRATEGIA: Recursiva
 ;; IMPACTO: No destructiva
 ;; ========================================================================
 
