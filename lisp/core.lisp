@@ -293,16 +293,31 @@
 ;; IMPACTO: No destructiva
 ;; ========================================================================
 
+;; Función auxiliar recursiva para el tiempo
+(defun aux-simular-cambios (tiempo-actual segundos-restantes estado-actual)
+  (cond
+    ;; Caso base: si ya no quedan segundos, retornamos la lista vacía
+    ((<= segundos-restantes 0) nil) 
+    
+    ;; Caso recursivo
+    (t 
+     (let ((nuevo-estado (timer tiempo-actual)))
+       (if (eq nuevo-estado estado-actual)
+           ;; Si el estado NO cambia: avanzamos el tiempo, pero no guardamos nada
+           (aux-simular-cambios (1+ tiempo-actual) 
+                                (1- segundos-restantes) 
+                                estado-actual)
+           
+           ;; Si el estado CAMBIA: unimos (cons) el nuevo evento con el resto de la recursión
+           (cons (list tiempo-actual estado-actual nuevo-estado)
+                 (aux-simular-cambios (1+ tiempo-actual) 
+                                      (1- segundos-restantes) 
+                                      nuevo-estado)))))))
+
+;; Función principal
 (defun simular-cambios (tiempo-inicial segundos-totales)
-  "Simula todos los cambios de estado en un período dado.
-   Entrada: tiempo-inicial (entero), segundos-totales (entero)
-   Salida: lista de eventos (epoch anterior nuevo)"
-  (let ((eventos nil)
-        (estado-actual (timer tiempo-inicial))
-        (tiempo-actual tiempo-inicial))
-    (dotimes (i segundos-totales)
-      (let ((nuevo-estado (timer (+ tiempo-inicial i))))
-        (unless (eq nuevo-estado estado-actual)
-          (push (list (+ tiempo-inicial i) estado-actual nuevo-estado) eventos)
-          (setf estado-actual nuevo-estado))))
-    (reverse eventos)))
+  "Simula todos los cambios de estado en un período dado."
+  ;; Disparamos la función auxiliar con los valores iniciales
+  (aux-simular-cambios tiempo-inicial 
+                       segundos-totales 
+                       (timer tiempo-inicial)))
