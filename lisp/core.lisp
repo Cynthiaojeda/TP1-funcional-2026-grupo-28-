@@ -301,14 +301,15 @@
     
     ;; Caso recursivo
     (t 
-     (let ((nuevo-estado (timer tiempo-actual)))
+     ;;  Usamos Timer-Req-7 en lugar de timer
+     (let ((nuevo-estado (Timer-Req-7 tiempo-actual))) 
        (if (eq nuevo-estado estado-actual)
-           ;; Si el estado NO cambia: avanzamos el tiempo, pero no guardamos nada
+           ;; Si el estado NO cambia: avanzamos el tiempo
            (aux-simular-cambios (1+ tiempo-actual) 
                                 (1- segundos-restantes) 
                                 estado-actual)
            
-           ;; Si el estado CAMBIA: unimos (cons) el nuevo evento con el resto de la recursión
+           ;;  unimos (cons) el nuevo evento con el resto
            (cons (list tiempo-actual estado-actual nuevo-estado)
                  (aux-simular-cambios (1+ tiempo-actual) 
                                       (1- segundos-restantes) 
@@ -320,4 +321,5 @@
   ;; Disparamos la función auxiliar con los valores iniciales
   (aux-simular-cambios tiempo-inicial 
                        segundos-totales 
-                       (timer tiempo-inicial)))
+                       ;;  Usamos Timer-Req-7
+                       (Timer-Req-7 tiempo-inicial)))
