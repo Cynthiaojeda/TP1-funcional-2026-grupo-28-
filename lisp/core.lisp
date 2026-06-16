@@ -253,11 +253,21 @@
 ;; IMPACTO: No destructiva, crea/sobrescribe archivo de texto
 ;; ========================================================================
 
+;; Función auxiliar recursiva con cond
+(defun procesar-lista-eventos (datos)
+  (cond
+    ((endp datos) nil) ; Caso base: si la lista está vacía, terminamos
+    (t 
+     ;; Procesamos el primer elemento
+     (destructuring-bind (epoch anterior nuevo) (first datos)
+       (registrar-cambio epoch anterior nuevo))
+     ;; Llamamos recursivamente con el resto de la lista
+     (procesar-lista-eventos (rest datos)))))
+
+;; Función principal
 (defun informe-Req-7 (datos)
-  "Genera informe completo de auditoría en archivo de texto.
-   Entrada: datos (lista de listas (epoch anterior nuevo))
-   Salida: 'informe-generado (símbolo indicador de éxito)"
-  ;; Sobrescribir o crear archivo con encabezado
+  "Genera informe completo de auditoría en archivo de texto."
+  ;; Encabezado
   (with-open-file (stream "informe-ejecucion-semaforo.txt"
                           :direction :output
                           :if-exists :supersede
@@ -265,20 +275,16 @@
     (format stream "Informe de Ejecución del Sistema Semafórico~%")
     (format stream "=========================================~%"))
   
-  ;; Registrar cada evento
-  (dolist (evento datos)
-    (destructuring-bind (epoch anterior nuevo) evento
-      (registrar-cambio epoch anterior nuevo)))
+  ;; Llamada a la recursividad
+  (procesar-lista-eventos datos)
   
-  ;; Agregar pie de página
+  ;; Pie de página
   (with-open-file (stream "informe-ejecucion-semaforo.txt"
                           :direction :output
                           :if-exists :append)
     (format stream "~%--- Fin del Informe ---"))
   
-  ;; Retornar indicador de éxito
   'informe-generado)
- 
 
 ;; ========================================================================
 ;; FUNCIÓN: simular-cambios
