@@ -27,7 +27,7 @@
 ;;ESTRATEGIA: condicional
 ;;IMPACTO; No destructivo
 ;;===============================
-(defun timer (epoch)
+(defun timer-Req-2 (epoch)
   ; calcular en qué segundo del ciclo estoy
   (let ((posicion (mod epoch 216)))
     ; decidir el color según esa posición
@@ -176,7 +176,7 @@
 ;; IMPACTO: No destructiva
 ;; ========================================================================
 
-(defun timer (tiempo-unix)
+(defun Timer-Req-7 (tiempo-unix)
   "Calcula color según tiempo Unix (con intermitencia de 3 segundos).
    Entrada: tiempo-unix (entero)
    Salida: símbolo del color actual"
@@ -253,7 +253,7 @@
 ;; IMPACTO: No destructiva, crea/sobrescribe archivo de texto
 ;; ========================================================================
 
-(defun informe (datos)
+(defun informe-Req-7 (datos)
   "Genera informe completo de auditoría en archivo de texto.
    Entrada: datos (lista de listas (epoch anterior nuevo))
    Salida: 'informe-generado (símbolo indicador de éxito)"
