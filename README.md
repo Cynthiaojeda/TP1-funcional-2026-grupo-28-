@@ -2,4 +2,4 @@
 
 #TP1 FUNCIONAL 2026 Grupo 28
 video de youtube
-https://youtube.com/watch?v=rZHEIlvDdj4&feature=shared
+https://youtu.be/H6ddhtCq7EM
